@@ -1,0 +1,26 @@
+1. ip addr show | grep 'inet' | grep -v 127.0.0.1
+result:
+ inet 192.168.100.88/24 brd 192.168.100.255 scope global dynamic noprefixroute wlp2s0
+
+
+2. ss -plnt > name_pipe &
+[1] 241427
+cat < name_pipe > output11.txt
+[1]+  Завершён        ss -plnt > name_pipe
+
+
+3. mkfifo /home/home/arc_pipe
+tar cf /home/home/syslog_archive.tar -C /home/home arc_pipe &
+cat /var/log/syslog > /home/home/arc_pipe
+
+
+4.date +%s | xargs -I{} date -d @{} +"%Y-%m-%d"
+2024-11-13
+
+
+5. cat <<EOF > mail.txt
+> text first
+> text second
+> text third
+> EOF
+
