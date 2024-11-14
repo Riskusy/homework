@@ -1,7 +1,6 @@
-1. ip addr show | grep 'inet' | grep -v 127.0.0.1
-result:
- inet 192.168.100.88/24 brd 192.168.100.255 scope global dynamic noprefixroute wlp2s0
-
+1. [root@dev-server ~]# ip addr show | grep 'inet ' | grep -v 127.0.0.1
+Result:
+    inet 78.140.241.4/24 brd 78.140.241.255 scope global noprefixroute enp0s5
 
 2. ss -plnt > name_pipe &
 [1] 241427
