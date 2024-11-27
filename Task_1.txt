@@ -2,22 +2,26 @@
 Result:
     inet 78.140.241.4/24 brd 78.140.241.255 scope global noprefixroute enp0s5
 
-2. ss -plnt > name_pipe &
-[1] 241427
-cat < name_pipe > output11.txt
-[1]+  Завершён        ss -plnt > name_pipe
+2.[root@dev_server ~]# mkfifo mypipe 
+  [root@dev_server ~]# cat mypipe > output &
+[1] 328350
+  [root@dev_server ~]# jobs
+[1]+ Running		cat mypipe > output.txt &
+  [root@dev_server ~]# ss -plnt > mypipe
+[1]+  Done        	cat mypipe > output.txt
 
 
-3. mkfifo /home/home/arc_pipe
-tar cf /home/home/syslog_archive.tar -C /home/home arc_pipe &
-cat /var/log/syslog > /home/home/arc_pipe
+3. [root@dev_server ~]# mkfifo /root/named_pipe
+   [root@dev_server ~]# cat /var/log/messages > named_pipe &
+   [root@dev_server ~]#  cat < named_pipe > out messages.txt
+   [root@dev_server ~]# tar -czf /root/messages.tar.gz out_messages.txt
 
 
-4.date +%s | xargs -I{} date -d @{} +"%Y-%m-%d"
-2024-11-13
+4. [root@dev_server ~]# echo "2024-11-27 12:00:00" | date -d "$(cat)" +%s
+1732708800
 
 
-5. cat <<EOF > mail.txt
+5. [root@dev_server ~]# cat <<EOF > mail.txt
 > text first
 > text second
 > text third
